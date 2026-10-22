@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { readWritingProfileBody } from "../data/writingProfile";
 import { asStringArray, getFilesByType, getFrontmatter, linkTarget } from "../data/vaultData";
+import { DEFAULT_METHODOLOGY } from "./defaultMethodology";
 
 /**
  * Shared "system context" every AIEditor backend should prepend to its very
@@ -24,8 +25,7 @@ import { asStringArray, getFilesByType, getFrontmatter, linkTarget } from "../da
 export async function buildSystemContext(app: App, currentChapterPath?: string): Promise<string> {
 	const parts: string[] = [];
 
-	const skill = readSkillFile(app);
-	if (skill) parts.push(skill);
+	parts.push(readSkillFile(app) ?? DEFAULT_METHODOLOGY);
 
 	const profile = await readWritingProfileBody(app);
 	if (profile) parts.push(`[作者的 Writing Profile - 持续累积的写作模式]\n\n${profile}`);
@@ -39,6 +39,13 @@ export async function buildSystemContext(app: App, currentChapterPath?: string):
 	return parts.join("\n\n---\n\n");
 }
 
+/**
+ * A vault can drop its own `novel-editor/SKILL.md` to override the bundled
+ * default below (e.g. a richer or more personal set of coaching principles).
+ * Most vaults won't have one, so this falling through to null - and the
+ * caller falling back to DEFAULT_METHODOLOGY - is the common case, not an
+ * error.
+ */
 function readSkillFile(app: App): string | null {
 	const basePath = app.vault.adapter instanceof FileSystemAdapter ? app.vault.adapter.getBasePath() : undefined;
 	if (!basePath) return null;

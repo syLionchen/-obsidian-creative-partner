@@ -17,7 +17,7 @@ Creative Partner 是一个跑在 Obsidian 里的个人小说创作陪练插件�
 ### 三条原则
 
 1. **不预先设计完整世界观/人物表。** 先假定一个结局或核心问题，开始写，新人事物随故事自然出现，逐步形成因果，走向结局。
-2. **反馈有理论依据，不是凭感觉打分。** AI Editor 的分析框架来自成熟的叙事方法论——人物欲望、价值变化、冲突升级、危机/高潮/结局、结构诊断，以及叙述者可靠性、叙述距离、信息控制、隐含作者。这套方法论不提供唯一正确答案，只提供诊断工具和多个可选的修改方向——具体怎么改，由作者决定。
+2. **反馈有理论依据，不是凭感觉打分。** AI Editor 的分析框架来自成熟的叙事方法论——人物欲望、价值变化、冲突升级、危机/高潮/结局、结构诊断，以及叙述者可靠性、叙述距离、信息控制、隐含作者。这套方法论不提供唯一正确答案，只提供诊断工具和多个可选的修改方向——具体怎么改，由作者决定。插件内置了这套方法论和一套固定的反馈分类（装完就能用，不用自己配），如果 vault 根目录下有你自己的 `novel-editor/SKILL.md`，插件会优先用你那份、覆盖内置版本。
 3. **AI 后台可插拔，账户归你自己。** 自己填任意 Provider 的 API Key（OpenAI 兼容 / Anthropic / Gemini / DeepSeek / 完全自定义），插件不内置任何厂商、不代你保管账号，Key 只存在本地的插件数据文件里，不会被提交到 git。
 
 ### 为什么每次反馈都是"重新理解"而不是"凭记忆应付"
@@ -93,7 +93,7 @@ Creative Partner is a personal novel-writing companion plugin for Obsidian (form
 ### Three principles
 
 1. **No upfront world-building or character bible.** Start from an assumed ending or a core question, begin writing, and let new people and things emerge naturally from the story, building causality step by step toward that ending.
-2. **Feedback is grounded in theory, not gut feeling.** The AI Editor's analysis framework comes from established narrative-craft methodology — character desire, value shifts, escalating conflict, crisis/climax/resolution, structural diagnosis, as well as narrator reliability, narrative distance, information control, and the implied author. This methodology doesn't hand you a single correct answer — it only offers diagnostic tools and several possible directions for revision. How to actually revise is always the author's call.
+2. **Feedback is grounded in theory, not gut feeling.** The AI Editor's analysis framework comes from established narrative-craft methodology — character desire, value shifts, escalating conflict, crisis/climax/resolution, structural diagnosis, as well as narrator reliability, narrative distance, information control, and the implied author. This methodology doesn't hand you a single correct answer — it only offers diagnostic tools and several possible directions for revision. How to actually revise is always the author's call. This framework and a fixed feedback taxonomy ship built into the plugin (works out of the box, nothing to configure); if your vault has its own `novel-editor/SKILL.md` at the vault root, the plugin uses that instead, letting you override the built-in version.
 3. **The AI backend is pluggable, and the account is yours.** Supply your own API key for any provider (OpenAI-compatible / Anthropic / Gemini / DeepSeek / fully custom) — the plugin doesn't bundle any vendor or hold your account for you. Keys are stored only in the plugin's local data file and are never committed to git.
 
 ### Why every round of feedback is "re-understanding," not "working from memory"
