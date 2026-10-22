@@ -102,7 +102,7 @@ export class EditorPanelView extends ItemView {
 			text: "Chat：直接跟 AI Editor 聊。它只读当前 Chapter 正文 + 一份跨章节索引（章节列表、未解决 Question、Scene 关联）来回复，从不会改你的正文。",
 		});
 		list.createEl("li", {
-			text: "Analyze Current Chapter：按《故事》《小说修辞学》的分析框架生成诊断式反馈卡片；每条反馈可以点 Discuss 丢进 Chat 继续聊，或 Mark resolved 标记已处理。",
+			text: "Analyze Current Chapter：按成熟的叙事方法论生成诊断式反馈卡片；每条反馈可以点 Discuss 丢进 Chat 继续聊，或 Mark resolved 标记已处理。",
 		});
 		list.createEl("li", {
 			text: "对话和反馈会自动记进 07_Editor/ 对应文件，时间线能在下面的 Editor History 里看。",

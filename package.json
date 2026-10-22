@@ -1,7 +1,7 @@
 {
   "name": "creative-partner",
   "version": "0.2.0",
-  "description": "Creative Partner Obsidian plugin: an AI writing coach grounded in Story (McKee) and The Rhetoric of Fiction (Booth).",
+  "description": "Creative Partner Obsidian plugin: an AI writing coach grounded in narrative-craft methodology.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
