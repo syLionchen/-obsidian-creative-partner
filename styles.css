@@ -1,0 +1,142 @@
+.novelos-empty {
+	opacity: 0.6;
+	font-size: 0.9em;
+}
+
+.novelos-quote {
+	font-style: italic;
+	margin-top: 0.4em;
+	padding-left: 0.6em;
+	border-left: 2px solid var(--background-modifier-border);
+}
+
+.novelos-section {
+	margin-bottom: 1.2em;
+}
+
+.novelos-graph-block {
+	margin-bottom: 1em;
+}
+
+.novelos-scene-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.novelos-scene-table th,
+.novelos-scene-table td {
+	text-align: left;
+	padding: 4px 8px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* AI Editor panel: calm, quiet, no animation - a reading/thinking surface,
+   not a chat app. */
+
+.novelos-editor-panel h3 {
+	margin-bottom: 0.4em;
+	font-size: 0.95em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	opacity: 0.75;
+}
+
+.novelos-usage-guide {
+	font-size: 0.9em;
+}
+
+.novelos-usage-guide summary {
+	cursor: pointer;
+	opacity: 0.75;
+}
+
+.novelos-usage-guide ol {
+	margin: 0.4em 0 0;
+	padding-left: 1.2em;
+}
+
+.novelos-usage-guide li {
+	margin-bottom: 0.4em;
+	line-height: 1.4;
+}
+
+.novelos-chat-thread {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6em;
+	margin-bottom: 0.6em;
+}
+
+.novelos-chat-message {
+	border-left: 2px solid var(--background-modifier-border);
+	padding: 2px 0 2px 8px;
+}
+
+.novelos-chat-author {
+	border-left-color: var(--interactive-accent);
+}
+
+.novelos-chat-speaker {
+	font-size: 0.8em;
+	opacity: 0.6;
+	margin-bottom: 2px;
+}
+
+.novelos-chat-text div {
+	line-height: 1.4;
+}
+
+.novelos-chat-input-row {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.novelos-chat-input {
+	width: 100%;
+	resize: vertical;
+	font-family: inherit;
+}
+
+.novelos-feedback-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.novelos-feedback-card {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	padding: 8px 10px;
+	margin-bottom: 8px;
+}
+
+.novelos-feedback-title {
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+
+.novelos-feedback-resolved {
+	opacity: 0.55;
+}
+
+.novelos-feedback-actions {
+	display: flex;
+	gap: 6px;
+	margin-top: 6px;
+}
+
+.novelos-history {
+	font-size: 0.9em;
+}
+
+.novelos-history ul {
+	margin: 0;
+	padding-left: 1.2em;
+}
+
+.novelos-history-time {
+	opacity: 0.6;
+	margin-right: 4px;
+}

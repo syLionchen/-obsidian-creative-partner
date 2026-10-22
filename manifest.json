@@ -1,0 +1,10 @@
+{
+  "id": "creative-partner",
+  "name": "Creative Partner",
+  "version": "0.2.0",
+  "minAppVersion": "1.4.0",
+  "description": "AI 写作陪练：假定一个结局/核心问题就开始写，用《故事》与《小说修辞学》的分析框架给出诊断式反馈，不代笔、不要求提前设计完整世界观。",
+  "author": "Creative Partner",
+  "authorUrl": "",
+  "isDesktopOnly": true
+}
