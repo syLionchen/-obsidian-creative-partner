@@ -33,9 +33,10 @@ Creative Partner 是一个跑在 Obsidian 里的个人小说创作陪练插件�
 
 **方式一：BRAT（推荐，之后能自动检查更新）**
 
-1. 在 Obsidian 里装官方社区插件 [BRAT](https://github.com/TfTHacker/obsidian42-brat)（Settings → Community plugins → Browse → 搜索 "BRAT"）。
-2. 打开 BRAT 设置，"Add Beta plugin"，填入仓库地址 `syLionchen/-obsidian-creative-partner`。
-3. BRAT 装完后，去 Settings → Community plugins，找到 "Creative Partner" 并启用。
+1. 在 Obsidian 里装官方社区插件 [BRAT](https://github.com/TfTHacker/obsidian42-brat)（Settings → Community plugins → Browse → 搜索 "BRAT"），装完记得在插件列表里把它**启用**（开关打开）。
+2. 按 `Ctrl+P`（Mac 是 `Cmd+P`）打开命令面板，输入 `BRAT`，选中 **"BRAT: Add a beta plugin for testing"**（不同版本的 BRAT，设置页里的按钮文案可能不一样，命令面板这条路最稳妥）。
+3. 在弹出的输入框里填仓库地址 `syLionchen/-obsidian-creative-partner`，回车确认。
+4. BRAT 装完后，去 Settings → Community plugins，找到 "Creative Partner" 并启用。
 
 **方式二：手动安装**
 
@@ -86,9 +87,10 @@ and only then assembles all of this into the prompt sent to the AI. Even if the 
 
 **Option 1: BRAT (recommended — gets you automatic update checks)**
 
-1. Install the official community plugin [BRAT](https://github.com/TfTHacker/obsidian42-brat) (Settings → Community plugins → Browse → search "BRAT").
-2. Open BRAT's settings, click "Add Beta plugin", and enter the repo `syLionchen/-obsidian-creative-partner`.
-3. Once BRAT installs it, go to Settings → Community plugins and enable "Creative Partner".
+1. Install the official community plugin [BRAT](https://github.com/TfTHacker/obsidian42-brat) (Settings → Community plugins → Browse → search "BRAT"), then make sure it's **enabled** (toggled on) in your plugin list.
+2. Open the command palette (`Ctrl+P`, or `Cmd+P` on Mac), type `BRAT`, and select **"BRAT: Add a beta plugin for testing"** (BRAT's settings-tab button label varies between versions, so the command palette is the most reliable path).
+3. In the prompt that appears, enter the repo `syLionchen/-obsidian-creative-partner` and confirm.
+4. Once BRAT installs it, go to Settings → Community plugins and enable "Creative Partner".
 
 **Option 2: Manual installation**
 
