@@ -1,5 +1,8 @@
 # Creative Partner
 
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+![Obsidian Plugin](https://img.shields.io/badge/Obsidian-plugin-7c3aed.svg)
+
 [中文](#中文) | [English](#english)
 
 ---
