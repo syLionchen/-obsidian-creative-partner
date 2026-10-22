@@ -26,6 +26,25 @@ Creative Partner 是一个跑在 Obsidian 里的个人小说创作陪练插件�
 
 再把这些拼进当次 prompt 发给 AI。哪怕作者完全没采纳上一次的建议、按自己的想法继续写，下一次分析依然基于他现在真正写出来的文字重新判断，而不是复述上一轮的记忆。唯一跨章节延续的记忆，是对作者长期写作模式的归纳（Writing Profile）和 Codex 后台里全书共享的上下文——这些是有意的设计，用来让反馈更懂这个作者，而不是用来替代每一次的重新理解。
 
+### 安装
+
+**方式一：BRAT（推荐，之后能自动检查更新）**
+
+1. 在 Obsidian 里装官方社区插件 [BRAT](https://github.com/TfTHacker/obsidian42-brat)（Settings → Community plugins → Browse → 搜索 "BRAT"）。
+2. 打开 BRAT 设置，"Add Beta plugin"，填入仓库地址 `syLionchen/-obsidian-creative-partner`。
+3. BRAT 装完后，去 Settings → Community plugins，找到 "Creative Partner" 并启用。
+
+**方式二：手动安装**
+
+1. 去仓库的 [Releases](https://github.com/syLionchen/-obsidian-creative-partner/releases) 页面，下载最新版本的 `main.js`、`manifest.json`、`styles.css` 三个文件（如果还没有 Release，就 clone 本仓库后自己 `npm install && npm run build`，用生成的 `main.js` 加上 `manifest.json`、`styles.css`）。
+2. 在你的 vault 里新建文件夹 `<你的vault>/.obsidian/plugins/creative-partner/`，把这三个文件放进去。
+3. 重启 Obsidian 或刷新插件列表，去 Settings → Community plugins 启用 "Creative Partner"。
+
+**启用后的第一步设置**
+
+1. 打开插件设置，在 "AI Provider" 里选一种后台：要么选"账户登录"复用本机已登录的 Codex CLI，要么自己填一个 Provider 的 API Key（OpenAI 兼容 / Anthropic / Gemini / DeepSeek / 自定义），选好协议格式（shape）、填好 URL / model / key。
+2. 插件认章节的方式是看笔记 frontmatter 里是否有 `type: chapter`——打开一篇带这个字段的笔记，右侧栏里的 "AI Editor" 面板才会显示 Chat / Feedback 功能。
+
 ### 开发
 
 ```
@@ -59,6 +78,25 @@ Every time you run `Analyze Current Chapter` or `Send`, the plugin:
 - Re-reads the editing-principles/theory-framework document and the author's recurring writing patterns (Writing Profile), also fresh;
 
 and only then assembles all of this into the prompt sent to the AI. Even if the author completely ignores the previous suggestion and keeps writing their own way, the next analysis is still based on what they actually wrote just now — not a replay of the last round's memory. The only memory that persists across chapters is the author's long-term writing-pattern summary (Writing Profile) and the shared book-wide context inside the Codex backend — this is an intentional design choice, meant to make feedback understand the author better over time, not to replace fresh re-understanding each time.
+
+### Installation
+
+**Option 1: BRAT (recommended — gets you automatic update checks)**
+
+1. Install the official community plugin [BRAT](https://github.com/TfTHacker/obsidian42-brat) (Settings → Community plugins → Browse → search "BRAT").
+2. Open BRAT's settings, click "Add Beta plugin", and enter the repo `syLionchen/-obsidian-creative-partner`.
+3. Once BRAT installs it, go to Settings → Community plugins and enable "Creative Partner".
+
+**Option 2: Manual installation**
+
+1. Go to the repo's [Releases](https://github.com/syLionchen/-obsidian-creative-partner/releases) page and download `main.js`, `manifest.json`, and `styles.css` from the latest release (if there's no release yet, clone the repo and run `npm install && npm run build` yourself, then use the generated `main.js` together with `manifest.json` and `styles.css`).
+2. Create a folder `<your-vault>/.obsidian/plugins/creative-partner/` and put those three files in it.
+3. Restart Obsidian (or refresh the plugin list) and enable "Creative Partner" under Settings → Community plugins.
+
+**First-time setup after enabling**
+
+1. Open the plugin settings and pick an AI backend under "AI Provider": either "account login" (reuses an already-authenticated Codex CLI on your machine), or your own API key for a provider (OpenAI-compatible / Anthropic / Gemini / DeepSeek / custom) — choose the protocol shape and fill in the URL / model / key.
+2. The plugin recognizes a chapter by checking whether a note's frontmatter has `type: chapter` — open a note with that field for the "AI Editor" panel in the side pane to show Chat / Feedback.
 
 ### Development
 
