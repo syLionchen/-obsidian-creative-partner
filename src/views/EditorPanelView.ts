@@ -108,7 +108,7 @@ export class EditorPanelView extends ItemView {
 			text: "对话和反馈会自动记进 07_Editor/ 对应文件，时间线能在下面的 Editor History 里看。",
 		});
 		list.createEl("li", {
-			text: "想换 AI 后台（Mock 测试 / 本机 Codex / 自己配的 OpenAI 兼容・Claude・Gemini・自定义 API）——去插件设置里配 Provider，配完重新打开一次这个面板才生效。",
+			text: "想换 AI 后台（Mock 测试 / 自己配的 OpenAI 兼容・Claude・Gemini・自定义 API）——去插件设置里配 Provider，配完重新打开一次这个面板才生效。",
 		});
 	}
 

@@ -1,6 +1,4 @@
-import { FileSystemAdapter, Plugin, TFile, WorkspaceLeaf } from "obsidian";
-import { existsSync, readFileSync } from "fs";
-import { join } from "path";
+import { Plugin, TFile, WorkspaceLeaf } from "obsidian";
 import { HOME_VIEW_TYPE, HomeView } from "./views/HomeView";
 import { CHAPTER_NAV_VIEW_TYPE, ChapterNavigatorView } from "./views/ChapterNavigatorView";
 import { STORY_GRAPH_VIEW_TYPE, StoryGraphView } from "./views/StoryGraphView";
@@ -8,7 +6,6 @@ import { EDITOR_PANEL_VIEW_TYPE, EditorPanelView } from "./views/EditorPanelView
 import { getFilesByType, getFrontmatter } from "./data/vaultData";
 import { AIEditor } from "./ai/AIEditor";
 import { MockAIEditor } from "./ai/MockAIEditor";
-import { CodexAIEditor } from "./ai/CodexAIEditor";
 import { HTTPAIEditor } from "./ai/HTTPAIEditor";
 import { DEFAULT_SETTINGS, CreativePartnerSettings, CreativePartnerSettingTab } from "./settings";
 
@@ -87,10 +84,10 @@ export default class CreativePartnerPlugin extends Plugin {
 	/**
 	 * Picks the backend named by settings.activeBackend:
 	 *  - "mock": MockAIEditor (no network).
-	 *  - "codex": CodexAIEditor, reading .novelos/config/config.json for
-	 *    codexThreadId (unchanged from V1).
 	 *  - anything else: looked up in settings.providers by id and handed to
-	 *    HTTPAIEditor - this is the bring-your-own-API seam.
+	 *    HTTPAIEditor - this is the bring-your-own-API seam, and the only
+	 *    real backend this plugin ships (no local-CLI integration, since
+	 *    that can't be made to work the same way on every machine).
 	 * Falls back to MockAIEditor on any misconfiguration so the plugin
 	 * never fails to load over an AI backend problem.
 	 */
@@ -98,25 +95,6 @@ export default class CreativePartnerPlugin extends Plugin {
 		const backend = this.settings.activeBackend;
 
 		if (backend === "mock") return new MockAIEditor();
-
-		if (backend === "codex") {
-			const basePath =
-				this.app.vault.adapter instanceof FileSystemAdapter ? this.app.vault.adapter.getBasePath() : undefined;
-			if (!basePath) return new MockAIEditor();
-
-			const configPath = join(basePath, ".novelos", "config", "config.json");
-			if (!existsSync(configPath)) return new MockAIEditor();
-
-			try {
-				const config = JSON.parse(readFileSync(configPath, "utf8"));
-				if (typeof config.codexThreadId === "string" && config.codexThreadId) {
-					return new CodexAIEditor(this.app, { threadId: config.codexThreadId });
-				}
-			} catch (err) {
-				console.error("Creative Partner: failed to read .novelos/config/config.json, falling back to MockAIEditor", err);
-			}
-			return new MockAIEditor();
-		}
 
 		const provider = this.settings.providers.find((p) => p.id === backend);
 		if (provider) return new HTTPAIEditor(this.app, provider);

@@ -2,7 +2,7 @@ import { App, PluginSettingTab, Setting } from "obsidian";
 import type CreativePartnerPlugin from "./main";
 import { ProviderConfig } from "./ai/protocols/types";
 
-/** "mock" | "codex" | a ProviderConfig.id */
+/** "mock" | a ProviderConfig.id */
 export type ActiveBackend = string;
 
 export interface CreativePartnerSettings {
@@ -11,7 +11,7 @@ export interface CreativePartnerSettings {
 }
 
 export const DEFAULT_SETTINGS: CreativePartnerSettings = {
-	activeBackend: "codex",
+	activeBackend: "mock",
 	providers: [],
 };
 
@@ -92,10 +92,9 @@ export class CreativePartnerSettingTab extends PluginSettingTab {
 	private renderBackendPicker(containerEl: HTMLElement): void {
 		new Setting(containerEl)
 			.setName("当前使用的后台")
-			.setDesc("Mock 用于不联网测试；Codex 读取 .novelos/config/config.json 里的 codexThreadId。")
+			.setDesc("Mock 用于不联网测试，不花钱；真正要用 AI 反馈，请在下面加一个 Provider 并在这里选中它。")
 			.addDropdown((dropdown) => {
 				dropdown.addOption("mock", "Mock（假数据，不联网）");
-				dropdown.addOption("codex", "Codex（本机 codex.exe，fork 出的 thread）");
 				for (const provider of this.plugin.settings.providers) {
 					dropdown.addOption(provider.id, `${provider.label} (${shapeLabel(provider.shape)})`);
 				}

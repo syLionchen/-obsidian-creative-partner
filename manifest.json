@@ -1,7 +1,7 @@
 {
   "id": "creative-partner",
   "name": "Creative Partner",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "minAppVersion": "1.4.0",
   "description": "AI 写作陪练：假定一个结局/核心问题就开始写，用成熟的叙事方法论给出诊断式反馈，不代笔、不要求提前设计完整世界观。",
   "author": "Creative Partner",

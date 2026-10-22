@@ -5,15 +5,10 @@ import { readWritingProfileBody } from "../data/writingProfile";
 import { asStringArray, getFilesByType, getFrontmatter, linkTarget } from "../data/vaultData";
 
 /**
- * Shared "system context" every AIEditor backend (Codex, HTTP providers)
- * should prepend to its very first prompt in a conversation. Previously
- * only CodexAIEditor had any notion of coaching principles, and only
- * implicitly - by resuming a Codex thread that happened to remember an
- * earlier conversation about novel-editor/SKILL.md. That breaks the moment
- * you switch to a stateless HTTP API (no thread to resume), and it was
- * fragile even for Codex (relies on the fork never being reset).
- *
- * So: read SKILL.md + the accumulated Writing Profile explicitly, every
+ * Shared "system context" every AIEditor backend should prepend to its very
+ * first prompt in a conversation. HTTP providers are stateless - there is no
+ * remote thread that could remember novel-editor/SKILL.md on its own - so
+ * this reads SKILL.md + the accumulated Writing Profile explicitly, every
  * time, for every backend. This is the "memory closed loop" - the only
  * persisted memory is plain files in the vault, not a remote session.
  *

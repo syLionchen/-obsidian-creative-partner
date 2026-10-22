@@ -28,17 +28,17 @@ function nextId(prefix: string): string {
 }
 
 /**
- * Bring-your-own-AI backend: any HTTP API, picked by `config.shape`. Unlike
- * CodexAIEditor there is no remote thread to resume - the provider's HTTP
- * endpoint is stateless, so this class resends the full per-chapter chat
- * history on every call, and explicitly prepends SKILL.md + the Writing
- * Profile (via buildSystemContext) as the system prompt every time. That
- * is the only "memory" there is for this backend - it lives entirely in
- * vault files, not on the provider's servers, so switching providers mid
- * novel does not lose coaching continuity.
+ * Bring-your-own-AI backend: any HTTP API, picked by `config.shape`. There
+ * is no remote thread to resume - the provider's HTTP endpoint is stateless,
+ * so this class resends the full per-chapter chat history on every call,
+ * and explicitly prepends SKILL.md + the Writing Profile (via
+ * buildSystemContext) as the system prompt every time. That is the only
+ * "memory" there is for this backend - it lives entirely in vault files,
+ * not on the provider's servers, so switching providers mid novel does not
+ * lose coaching continuity.
  *
- * Same hard rule as CodexAIEditor: only ever reads the chapter file to
- * build a prompt, never writes to it.
+ * Hard rule: only ever reads the chapter file to build a prompt, never
+ * writes to it.
  */
 export class HTTPAIEditor implements AIEditor {
 	private chapters = new Map<string, ChapterState>();
